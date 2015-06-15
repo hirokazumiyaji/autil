@@ -14,7 +14,7 @@ done
 
 shift `expr $OPTIND - 1`
 
-HOST=$(`pwd`/bin/autil ec2 "$@" | peco --query "${LBUFFER}" | awk '{print $2}')
+HOST=$(autil ec2 "$@" | peco --query "${LBUFFER}" | awk '{print $2}')
 if [ -n "${HOST}" ]; then
   if [ -n "${USER}" ]; then
     ssh ${USER}@${HOST}

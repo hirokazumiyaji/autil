@@ -6,14 +6,16 @@ AWS Utility Command
 
 ## Usage
 
+```
 autil <command> <profile name>
 
 command
   config: print profile infomation
-  ec2: ec2 host
+  ec2: print ec2 host
 
 profile name
-  aws credentials profile
+  profile name of aws credentials(~/.aws/credentials)
+```
 
 ## Install
 

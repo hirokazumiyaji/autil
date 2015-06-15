@@ -38,7 +38,7 @@ $ ec2ssh [-u sshuser] region credential-profilename
 To install, use `go get`:
 
 ```bash
-$ go get -d github.com/hirokazumiyaji/autil
+$ go get github.com/hirokazumiyaji/autil
 ```
 
 ## Contribution

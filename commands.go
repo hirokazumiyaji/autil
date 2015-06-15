@@ -74,7 +74,7 @@ func doEc2(c *cli.Context) {
 					tagName = *tag.Value
 				}
 			}
-			fmt.Println(fmt.Sprintf("%s\t%s", tagName, *instance.PublicDNSName))
+			fmt.Println(fmt.Sprintf("%s\t%s\t%s", tagName, *instance.PublicDNSName, *instance.State.Name))
 		}
 	}
 }

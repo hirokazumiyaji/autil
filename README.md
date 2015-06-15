@@ -23,8 +23,14 @@ options
 * ec2
 
 ```
-$ autil ec2 ap-northeast-1 default
-$ tag1\tpublic dnsname
+$ autil ec2 region credential-profilename
+$ tagname\tpublic-dnsname
+```
+
+* ec2ssh ( ec2 ssh login using peco )
+
+```
+$ ec2ssh [-u sshuser] region credential-profilename
 ```
 
 ## Install

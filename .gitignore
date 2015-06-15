@@ -24,3 +24,7 @@ _testmain.go
 *.prof
 
 build
+
+# godeps
+Godeps/Readme
+Godeps/_workspace

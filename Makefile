@@ -18,6 +18,6 @@ testdeps:
 
 install: deps
 		go install $(VERBOSE_FLAG) $(BUILD_FLAGS)
-		cp -p bin/sshec2 $(GOBIN)
+		cp -p bin/sshec2 $(GOROOT)/bin
 
 .PHONY: build test deps testdeps install

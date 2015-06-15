@@ -55,19 +55,26 @@ func doConfig(c *cli.Context) {
 }
 
 func doEc2(c *cli.Context) {
-	profile := c.Args().Get(0)
+	region := c.Args().Get(0)
+	profile := c.Args().Get(1)
 	cred := credentials.NewSharedCredentials("", profile)
 
-	svc := ec2.New(&aws.Config{Credentials: cred})
+	svc := ec2.New(&aws.Config{Region: region, Credentials: cred})
 	resp, err := svc.DescribeInstances(nil)
 	if err != nil {
-		fmt.FPrintln(os.Stderr, err)
+		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
 
-	for i, res := range resp.Reservations {
+	for _, res := range resp.Reservations {
 		for _, instance := range res.Instances {
-			fmt.Println(*instance.InstanceID)
+			var tagName string
+			for _, tag := range instance.Tags {
+				if *tag.Key == "Name" {
+					tagName = *tag.Value
+				}
+			}
+			fmt.Println(fmt.Sprintf("%s\t%s", tagName, *instance.PublicDNSName))
 		}
 	}
 }

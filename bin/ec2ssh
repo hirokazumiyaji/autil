@@ -1,0 +1,6 @@
+#!/bin/sh
+
+HOST=$(`pwd`/bin/autil ec2 "$@" | peco --query "${LBUFFER}" | awk '{print $2}')
+if [ -n "${HOST}" ]; then
+  ssh ${HOST}
+fi

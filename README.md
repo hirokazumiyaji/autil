@@ -7,14 +7,24 @@ AWS Utility Command
 ## Usage
 
 ```
-autil <command> <profile name>
+autil <command> <options>
 
 command
   config: print profile infomation
   ec2: print ec2 host
 
-profile name
-  profile name of aws credentials(~/.aws/credentials)
+options
+  profile name
+    profile name of aws credentials(~/.aws/credentials)
+  region
+    target region
+```
+
+* ec2
+
+```
+$ autil ec2 ap-northeast-1 default
+$ tag1\tpublic dnsname
 ```
 
 ## Install
